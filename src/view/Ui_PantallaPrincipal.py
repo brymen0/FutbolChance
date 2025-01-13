@@ -102,6 +102,7 @@ class Ui_ApuestasApp(object):
 
         self.eventsLayout = QtWidgets.QVBoxLayout(self.scrollContent)
 
+        '''
         # Crear eventos de ejemplo
         for i in range(5):  # Ejemplo con 5 eventos
             self.add_event_widget(
@@ -109,9 +110,10 @@ class Ui_ApuestasApp(object):
                 f"Equipo {i+1} vs Equipo {i+2}",
                 "1.8", "3.0", "2.5",
                 "../resources/futbol.png",  # Imagen llamada futbol.png
-                f"Jornada {i+1}"  # Instancia de campeonato
+                f"Jornada {i+1}",  # Instancia de campeonato
+                i+1
             )
-
+        '''
         self.scrollArea.setWidget(self.scrollContent)
         self.mainLayout.addWidget(self.scrollArea)
 
@@ -137,7 +139,7 @@ class Ui_ApuestasApp(object):
         """)
         return button
 
-    def add_event_widget(self, league, country, match, odds1, oddsDraw, odds2, image_path, instance):
+    def add_event_widget(self, league, country, match, odds1, oddsDraw, odds2, image_path, instance,event_id):
         """Agrega un evento deportivo en un bloque estilo móvil."""
         eventWidget = QtWidgets.QWidget()
         eventWidget.setStyleSheet("""
@@ -186,13 +188,17 @@ class Ui_ApuestasApp(object):
         # Botones de apuestas
         oddsLayout = QtWidgets.QHBoxLayout()
 
+        # Crear botones con objectName único basado en el event_id
         btnTeam1 = self.create_odds_button(f"Gana 1 ({odds1}x)")
+        btnTeam1.setObjectName(f"btn{event_id}_gana1")  # Asignar nombre único
         oddsLayout.addWidget(btnTeam1)
 
         btnDraw = self.create_odds_button(f"Empate ({oddsDraw}x)")
+        btnDraw.setObjectName(f"btn{event_id}_empate")  # Asignar nombre único
         oddsLayout.addWidget(btnDraw)
 
         btnTeam2 = self.create_odds_button(f"Gana 2 ({odds2}x)")
+        btnTeam2.setObjectName(f"btn{event_id}_gana2")  # Asignar nombre único
         oddsLayout.addWidget(btnTeam2)
 
         eventLayout.addLayout(oddsLayout)

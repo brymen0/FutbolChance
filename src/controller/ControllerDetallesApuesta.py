@@ -10,4 +10,10 @@ class ControllerDetallesApuesta(QtWidgets.QMainWindow, Ui_DetalleApuesta):
         self.show()
 
     def initAction(self):
-        self.btnVolver.clicked.connect(self.close())
+        self.btnVolver.clicked.connect(self.volver)
+
+    def volver(self):
+        from src.controller.ControllerMain import ControllerMain
+        self.vPantallaPrincipal = ControllerMain()
+        self.vPantallaPrincipal.show()
+        self.close()

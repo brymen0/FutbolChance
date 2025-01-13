@@ -1,11 +1,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-
 class Ui_ApuestasApp(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400, 650)  # Tamaño móvil
-        MainWindow.setStyleSheet("background-color: #1e1e1e;")  # Fondo oscuro
+        MainWindow.resize(400, 650)
+        MainWindow.setStyleSheet("background-color: #1e1e1e;")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -73,7 +72,7 @@ class Ui_ApuestasApp(object):
 
         # Cerrar sesión como botón con icono
         self.btnCerrarSesion = QtWidgets.QPushButton()
-        self.btnCerrarSesion.setIcon(QtGui.QIcon("cerrar_sesion.png"))  # Ruta de la imagen
+        self.btnCerrarSesion.setIcon(QtGui.QIcon("../resources/cerrar_sesion.png"))  # Ruta de la imagen
         self.btnCerrarSesion.setIconSize(QtCore.QSize(24, 24))  # Tamaño del icono
         self.btnCerrarSesion.setStyleSheet("""
     QPushButton {
@@ -109,7 +108,7 @@ class Ui_ApuestasApp(object):
                 f"Liga España", "España",
                 f"Equipo {i+1} vs Equipo {i+2}",
                 "1.8", "3.0", "2.5",
-                "futbol.png",  # Imagen llamada futbol.png
+                "../resources/futbol.png",  # Imagen llamada futbol.png
                 f"Jornada {i+1}"  # Instancia de campeonato
             )
 

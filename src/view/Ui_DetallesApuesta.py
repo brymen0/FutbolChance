@@ -47,11 +47,11 @@ class Ui_DetalleApuesta(object):
         self.lblHora.setStyleSheet("color: #ffffff; font-size: 16px;")
         infoLayout.addWidget(self.lblHora)
 
-        self.lblSeleccion = QtWidgets.QLabel("Tu selección: Gana Equipo A")
+        self.lblSeleccion = QtWidgets.QLabel("Tu elección: Gana Equipo A")
         self.lblSeleccion.setStyleSheet("color: #ffffff; font-size: 16px;")
         infoLayout.addWidget(self.lblSeleccion)
 
-        self.lblCuota = QtWidgets.QLabel("Cuota ofrecida: 3x")
+        self.lblCuota = QtWidgets.QLabel("Cuota: 3x")
         self.lblCuota.setStyleSheet("color: #00ff00; font-size: 16px; font-weight: bold;")
         infoLayout.addWidget(self.lblCuota)
 
@@ -153,7 +153,8 @@ class Ui_DetalleApuesta(object):
 
     def actualizarGanancia(self):
         valor = self.sliderApuesta.value()
-        cuota = 3  # Cuota fija para el ejemplo
+        texto = self.lblCuota.text()
+        cuota = float(texto.split(":")[1].strip())
         ganancia = valor * cuota
         self.lblMonto.setText(f"Cantidad a apostar: ${valor}")
         self.lblGanancia.setText(f"Ganancia potencial: ${ganancia}")

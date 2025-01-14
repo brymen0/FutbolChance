@@ -27,7 +27,7 @@ class Ui_ApuestasApp(object):
 
         # Saldo con botón de recarga
         saldoLayout = QtWidgets.QHBoxLayout()
-        self.btnSaldo = QtWidgets.QPushButton("Saldo: $500.00")
+        self.btnSaldo = QtWidgets.QPushButton("Saldo: $50.00")
         self.btnSaldo.setStyleSheet("""
             QPushButton {
                 color: #ffffff;
@@ -68,6 +68,7 @@ class Ui_ApuestasApp(object):
 
         for option in ["Mi cuenta", "Bonos", "Apuestas", "Eventos deportivos"]:
             btnOption = self.create_nav_button(option)
+            btnOption.setObjectName(f"btn{option}")
             self.navLayout.addWidget(btnOption)
 
         # Cerrar sesión como botón con icono

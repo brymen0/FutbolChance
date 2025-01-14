@@ -38,6 +38,7 @@ class Ui_HistorialApuestas(object):
         self.apuestasLayout.setContentsMargins(10, 10, 10, 10)
         self.apuestasLayout.setSpacing(10)
 
+        '''
         # Añadir apuestas de ejemplo
         for i in range(10):  # Simula 10 apuestas
             apuestaWidget = self.crearApuestaWidget(
@@ -50,6 +51,7 @@ class Ui_HistorialApuestas(object):
                 estado="Ganada" if i % 3 == 0 else "Perdida" if i % 3 == 1 else "En juego"
             )
             self.apuestasLayout.addWidget(apuestaWidget)
+        '''
 
         self.mainLayout.addWidget(self.scrollArea)
 
@@ -77,9 +79,6 @@ class Ui_HistorialApuestas(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def crearApuestaWidget(self, partido, fecha, hora, seleccion, monto, ganancia, estado):
-        """
-        Crea un widget que representa una apuesta en el historial, con estado.
-        """
         widget = QtWidgets.QWidget()
         widget.setStyleSheet("""
             background-color: #3a3a3a;
